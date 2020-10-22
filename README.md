@@ -1,4 +1,4 @@
-# Distributed Algorithms: An Intiuitive Approach Exercise Solution
+# Distributed Algorithms: An Intuitive Approach Exercise Solution
 
 Exercise solutions from my reading of the book.
 
