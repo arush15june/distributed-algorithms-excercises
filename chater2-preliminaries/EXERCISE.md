@@ -206,10 +206,10 @@ c \prec  d\\
 
 \text{Possible Executions}\\
 
-a \space   b \space    a \space    b \space    b \\
-b \space    a \space    b \space    a \space    d \\
-c \space    c \space    d \space    d \space    a \\
-d \space    d \space    c \space     c \space    a \\
+a \space   b \space    a \space    b \space    b\\
+b \space    a \space    b \space    a \space    d\\
+c \space    c \space    d \space    d \space    a\\
+d \space    d \space    c \space     c \space    a\\
 ```
 
 ## Exercise 2.6
@@ -289,6 +289,18 @@ Propose two adaptations of the MSI cache coherence protocol, in both cases by in
 
 (b) Reduce the number of flushes to main memory in case of a continuous stream of reads and writes by different processes to a certain variable.
 
+MSI Cache Coherence Protocol: Maintain cache consistency across caches.
+
+Modified - cache line has been writen in the cache, and must be eventually stored in the main memory.
+Shared - line has not been written to in any cache and can be read.
+Invalid - line must be refreshed before it can be read
+
+A cache line in a single cache starts
+- nonmodified, 
+- process write data, cache line becomes modified in that cache and invalidated in all other caches
+- modified cache line read by a process in some other cache, then in both caches this line becomes shared.
+- until a cache line is written to byte another process it isnt invalidated.
+
 **TODO**
 
 ## Exercise 2.11
@@ -298,4 +310,11 @@ For each of the following approaches for handling a free lock to a waiting proce
 (b) Processes that wait for the lock are placed in a FIFO queue. Hand the lock to the process at the head of thisi queue.
 (c) Hand the lock to the waiting process with the Highest ID.
 
-**TODO**
+(a) No, it will not be starvation free.
+If the waiting process is randomy selected, then the probability that each waiting process will eventually get a lock is not deterministic.
+
+(b) Yes, it will be starvation free.
+Assuming each process holding the lock will eventually free it, . 
+
+(c) No it will not be starvation free.
+Processes with higher process IDs could keep trying to get hold of the lock, a process if able to impersonate IDs could hold the lock forever.
