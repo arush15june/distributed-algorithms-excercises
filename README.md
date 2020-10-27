@@ -6,5 +6,4 @@ I will be writing notes on Notion [here](https://www.notion.so/batterybanter/Dis
 
 # Exercise Solutions
 
-# TODO
-- Chapter 2 Exercises
+- Chapter 2: Preliminaries
